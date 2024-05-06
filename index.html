@@ -29,37 +29,7 @@
     
   </script>
 
- <script>
-        const apiKey = 'OGJlNGViZTlhMjMzNGY4MDgyYjQ2NjZhZjMxOTIxNTE=';
 
-        async function getCouponCode() {
-            try {
-                const response = await axios({
-                    baseURL: baseURL, // You need to define baseURL
-                    method: 'get',
-                    url: '/deals/country/discount/?pd_identifier=96a02a76-17ad-4f44-9e21-784f4d478b7c&country_code=FR',
-                    headers: {
-                        'Authorization': `Bearer ${apiKey}` // Add 'Bearer' before apiKey
-                    }
-                });
-                return response;
-            } catch (error) {
-                console.error('Error fetching coupon code:', error);
-                throw error;
-            }
-        }
-
-        async function fetchCoupon() {
-            try {
-                const couponResponse = await getCouponCode();
-                console.log('Coupon Code:', couponResponse.data); 
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
-        window.addEventListener('load', fetchCoupon);
-    </script>
     
     <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="65be0e67215790325626872d"></script>
 </html>
