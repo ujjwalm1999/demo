@@ -7,8 +7,50 @@
 <!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
-    <script type="text/javascript">
-function resolvePdSDKFunction(e,...t){return new Promise((n,i)=>{!function r(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(r,100)}()})}!function(e,t,n,i,r,a,c){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},a=t.createElement(n),c=t.getElementsByTagName(n)[0],a.id="parity-deals-sdk",a.async=1,a.src=r,c.parentNode.insertBefore(a,c)}(window,document,"script","ParityDealsSDK","https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
+<script type="text/javascript">
+function resolvePdSDKFunction(e, ...t) {
+  return new Promise((resolve, reject) => {
+    (function checkSDK() {
+      if (window.ParityDealsSDK && typeof window.ParityDealsSDK[e] === "function") {
+        window.ParityDealsSDK[e](...t)
+          .then(resolve)
+          .catch(reject);
+      } else {
+        setTimeout(checkSDK, 100);
+      }
+    })();
+  });
+}
+
+(function (window, document, tag, sdkName, sdkUrl, scriptElement, firstScript) {
+  window[sdkName] = window[sdkName] || function () {
+    (window[sdkName].q = window[sdkName].q || []).push(Array.prototype.slice.call(arguments));
+  };
+
+  scriptElement = document.createElement(tag);
+  firstScript = document.getElementsByTagName(tag)[0];
+
+  scriptElement.id = "parity-deals-sdk";
+  scriptElement.async = 1;
+  scriptElement.src = sdkUrl;
+
+  firstScript.parentNode.insertBefore(scriptElement, firstScript);
+})(window, document, "script", "ParityDealsSDK", "https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js");
+
+window.ParityDeals = {
+  init: function (options) {
+    ParityDealsSDK("init", options);
+  },
+  getUpdatedPrice: function (elementId, currency) {
+    return resolvePdSDKFunction("getUpdatedPrice", elementId, currency);
+  },
+  updatePriceElement: function (elementId, newPrice) {
+    return resolvePdSDKFunction("updatePriceElement", elementId, newPrice);
+  },
+  updatePrice: function (newPrice) {
+    return resolvePdSDKFunction("updatePrice", newPrice);
+  }
+};
 
 // Initialize ParityDeals SDK
 ParityDeals.init({
@@ -16,6 +58,7 @@ ParityDeals.init({
   // Pass options as needed
 });
 </script>
+
 </head>
 <body style="height: 1000px;">
 <h1>This is for test purposes only </h1>
