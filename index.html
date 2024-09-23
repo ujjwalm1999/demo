@@ -7,19 +7,14 @@
 <!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
-    <script>
- (function(w,d,s,o,f,js,fjs){
-   w[o]=w[o]function(){(w[o].q=w[o].q[]).push(Array.prototype.slice.call(arguments))};
-   js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
-   js.id='parity-deals-sdk';js.async=1;js.src=f;
-   fjs.parentNode.insertBefore(js,fjs);
- }(window,document,'script','ParityDeals'
- ,'https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js'));
-  
-// Initialize ParityDeals
- ParityDeals('init', {
-   convertToLocal: true
- });
+    <script type="text/javascript">
+function resolvePdSDKFunction(e,...t){return new Promise((n,i)=>{!function r(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(r,100)}()})}!function(e,t,n,i,r,a,c){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},a=t.createElement(n),c=t.getElementsByTagName(n)[0],a.id="parity-deals-sdk",a.async=1,a.src=r,c.parentNode.insertBefore(a,c)}(window,document,"script","ParityDealsSDK","https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
+
+// Initialize ParityDeals SDK
+ParityDeals.init({
+  convertToLocal: true, // Convert prices to local currency
+  // Pass options as needed
+});
 </script>
 </head>
 <body style="height: 1000px;">
