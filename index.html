@@ -2,7 +2,34 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+    <script>const makeApiCall = async () => {
+  const data = {
+    pd_identifier: '',  // Add the value
+    ip_address: '',     // Add the value
+    apply_coupons: true, // Or false depending on your logic
+    payment_id: 'your_payment_id', // Replace with actual payment ID
+    checkout_data: {},   // Replace with the actual checkout data
+    success_url: 'https://your-success-url.com' // Replace with the actual success URL
+  };
+
+  try {
+    const response = await fetch('/api/v1/stripe-checkout/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log('Success:', result);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+// Call the function
+makeApiCall();</script>
 <!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
