@@ -104,7 +104,36 @@ ParityDeals.init({
     <span data-pd-price-formatted></span>
   </div>
 </div>
+<div class="pricing-plan">
+    <div class="price-container" data-pd-convert-to-local-price id="price-container" data-pd-original-price="4">
+        <span data-pd-currency-symbol></span>
+        <span data-pd-price-integer></span>
+        <span data-pd-price-decimal-point></span>
+        <span data-pd-price-decimal></span>
+    </div>
+  </div>
+<button class="price-button" data-price="4">Basic Plan</button>
+  <button class="price-button" data-price="5">Premium Plan</button>
+  <button class="price-button" data-price="6">Pro Plan</button>
 </body>
+<script>
+function updatePrice(newPrice) {
+    const priceContainer = document.getElementById('price-container');
+    priceContainer.setAttribute('data-pd-original-price', newPrice);
+
+    ParityDeals.updatePriceElement(priceContainer, { convertToLocal: true })
+
+  }
+
+  document.querySelectorAll('.price-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const newPrice = button.getAttribute('data-price'); 
+      updatePrice(newPrice);
+    });
+  });
+
+  updatePrice(document.getElementById('price-container').getAttribute('data-pd-original-price'));
+</script>
         <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
 <script>
     let gallery = document.getElementById('gallery')
