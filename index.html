@@ -117,7 +117,7 @@ ParityDeals.init({
   <button class="price-button" data-price="6">Pro Plan</button>
 </body>
 <script>
-function updatePrice(newPrice) {
+ParityDeals.updatePrice(newPrice) {
     const priceContainer = document.getElementById('price-container');
     priceContainer.setAttribute('data-pd-original-price', newPrice);
 
