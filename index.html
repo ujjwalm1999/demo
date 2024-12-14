@@ -98,7 +98,7 @@ ParityDeals.init({
     </a>
   </div>
     <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https://www.paritydeals.com/api/v1/lemon-squeezy-buy-now/?store_id=123056&variants=520841,529485&pd_suite_id=2794&success_url=https://ujjwalm1999.github.io/" role="button">Purchase now</a>
-        <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https://stagingapi.paritydeals.com/api/v1/lemon-squeezy-buy-now/?store_id=80322&variants=326281&pd_suite_id=43&success_url=https://asishsuresh.github.io/demo" role="button">lemon now</a>
+        <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https://www.paritydeals.com/api/v1/stripe-buy-now/?payment_id=plink_1Q3ZUsLN3QPLtCqe6ZJR5RJ4&pd_suite_id=2796&success_url=https://asishsuresh.github.io/" role="button">lemon now</a>
 <div class="pricing-plan">
   <div class="price-container" data-pd-original-price="199">
     <span data-pd-price-formatted></span>
@@ -144,7 +144,39 @@ ParityDeals.updatePrice(newPrice) {
     
   </script>
 
-
+<script>
+const fetchCheckoutUrl = async () => {
+    const data = {
+      pd_identifier: 'your_pd_identifier',  //(required) Replace with actual pd identifier
+      ip_address: '',     //(optional) Replace with actual ip_address.
+      variants:'',    //(conditional) Replace with the actual product variants.
+                      //This Parameter is required if checkout_data is not provided.
+      store_id: 'your_store_id', //(required) Replace with actual store ID
+      checkout_data: {},   //(conditional) Replace with the actual Lemonsqueezy checkout data
+                          //This Parameter is required if variants is not provided.
+      success_url: 'https://your-success-url.com' //(optional) Set the URL for post-checkout redirection.
+    };
+  
+    try {
+      const response = await fetch('https://www.paritydeals.com/api/v1/lemon-squeezy-checkout/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+      console.log('Successfully created Checkout session:', result);
+    } catch (error) {
+      console.error('Error while Checkout session:', error);
+    }
+  };
+  
+  // Call the function
+  fetchCheckoutUrl();
+  
+<script/>
     
    <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="66a7179fc63e89ec80e1ec57"></script>
     
