@@ -2,33 +2,6 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>const makeApiCall = async () => {
-  const data = {
-    "pd_identifier": "628dcaed-05e4-49fd-8767-1e6be4482b6e",
-  "ip_address": "192.168.1.38",
-  "apply_coupons": true,
-  "payment_id": "plink_1Q3ZUsLN3QPLtCqe6ZJR5RJ4",
-  "success_url": "https://ujjwalm1999.github.io/demo"
-  };
-
-  try {
-    const response = await fetch('https://api.paritydeals.com/api/v1/stripe-checkout/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    console.log('Success:', result);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
-
-// Call the function
-makeApiCall();</script>
 <!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
