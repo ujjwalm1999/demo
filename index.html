@@ -148,7 +148,7 @@ ParityDeals.updatePrice(newPrice) {
 const fetchCheckoutUrl = async () => {
     const data = {
       pd_identifier: 'eb2e65b7-d54b-474f-b315-7db41a869ca7',  //(required) Replace with actual pd identifier
-      ip_address: '',     //(optional) Replace with actual ip_address
+      ip_address: '192.168.1.37',     //(optional) Replace with actual ip_address
       apply_coupons: true, //(optional) Set it to false if you don't want automatically apply the coupons
       payment_id: 'plink_1Q3ZUsLN3QPLtCqe6ZJR5RJ4', //(conditional) Replace with actual payment ID from stripe. 
                                     //This Parameter is required if checkout_data is not provided.
