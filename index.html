@@ -3,63 +3,23 @@
 <head>
 <!-- <script src="https://cdn.paritydeals.com/banner.js"></script>
  -->
-<script src="https://cdn.paritydeals.com/staging-banner.js"></script>
+<!-- <script src="https://cdn.paritydeals.com/staging-banner.js"></script> -->
+ <!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<!--     <script src="./index.js" data-url="https://ujjwalm1999.github.io/demo/"></script>
  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
-<!-- <script type="text/javascript">
-function resolvePdSDKFunction(e, ...t) {
-  return new Promise((resolve, reject) => {
-    (function checkSDK() {
-      if (window.ParityDealsSDK && typeof window.ParityDealsSDK[e] === "function") {
-        window.ParityDealsSDK[e](...t)
-          .then(resolve)
-          .catch(reject);
-      } else {
-        setTimeout(checkSDK, 100);
-      }
-    })();
-  });
-}
 
-(function (window, document, tag, sdkName, sdkUrl, scriptElement, firstScript) {
-  window[sdkName] = window[sdkName] || function () {
-    (window[sdkName].q = window[sdkName].q || []).push(Array.prototype.slice.call(arguments));
-  };
-
-  scriptElement = document.createElement(tag);
-  firstScript = document.getElementsByTagName(tag)[0];
-
-  scriptElement.id = "parity-deals-sdk";
-  scriptElement.async = 1;
-  scriptElement.src = sdkUrl;
-
-  firstScript.parentNode.insertBefore(scriptElement, firstScript);
-})(window, document, "script", "ParityDealsSDK", "https://cdn.paritydeals.com/paritydeals-sdk/0.0.4/paritydeals-sdk.umd.js");
-
-window.ParityDeals = {
-  init: function (options) {
-    ParityDealsSDK("init", options);
-  },
-  getUpdatedPrice: function (elementId, currency) {
-    return resolvePdSDKFunction("getUpdatedPrice", elementId, currency);
-  },
-  updatePriceElement: function (elementId, newPrice) {
-    return resolvePdSDKFunction("updatePriceElement", elementId, newPrice);
-  },
-  updatePrice: function (newPrice) {
-    return resolvePdSDKFunction("updatePrice", newPrice);
-  }
-};
-
-// Initialize ParityDeals SDK
-ParityDeals.init({
-  convertToLocal: true, // Convert prices to local currency
-  // Pass options as needed
+<script type="text/javascript">
+function resolvePdSDKFunction(e,...t){return new Promise(((n,i)=>{!function o(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(o,100)}()}))}!function(e,t,n,i,o,r,a){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},r=t.createElement(n),a=t.getElementsByTagName(n)[0],r.id="parity-deals-sdk",r.async=1,r.src="https://cdn.paritydeals.com/js-promotions-ui/js-promotions-ui-1.0.0.umd.js",r.type="module",a.parentNode.insertBefore(r,a)}(window,document,"script","ParityDealsSDK"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
+</script>
+<script>
+  ParityDeals.init({
+  productId: 'promo_65b31c09a3ee4e51898e0e0c363fdb16',
+  showBanner: true,
 });
-</script> -->
+</script>
 
 </head>
 <body style="height: 1000px;">
@@ -76,41 +36,12 @@ ParityDeals.init({
   </div>
     <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https:https://www.paritydeals.com/api/v1/stripe-buy-now/?payment_id=plink_1QSWybLN3QPLtCqeBAHsdlNL&pd_suite_id=231&success_url=https://ujjwalm1999.github.io/" role="button">Purchase now</a>
         <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https://www.paritydeals.com/api/v1/lemon-squeezy-buy-now/?store_id=15171&variants=44340,520757&pd_suite_id=234&success_url=https://ujjwalm1999.github.io/" role="button">lemon now</a>
-<div class="pricing-plan">
-  <div class="price-container" data-pd-original-price="199">
-    <span data-pd-price-formatted></span>
-  </div>
-</div>
-<div class="pricing-plan">
-    <div class="price-container"  id="price-container"data-pd-decimal-separator="." data-pd-thousands-separator="," data-pd-original-price="299">
-        <span data-pd-currency-symbol></span>
-        <span data-pd-price-integer></span>
-        <span data-pd-price-decimal-point></span>
-        <span data-pd-price-decimal></span>
-    </div>
-  </div>
-<button class="price-button" data-price="4">Basic Plan</button>
-  <button class="price-button" data-price="5">Premium Plan</button>
-  <button class="price-button" data-price="6">Pro Plan</button>
+
+
+
+
 </body>
-<script>
-ParityDeals.updatePrice(newPrice) {
-    const priceContainer = document.getElementById('price-container');
-    priceContainer.setAttribute('data-pd-original-price', newPrice);
 
-    ParityDeals.updatePriceElement(priceContainer, { convertToLocal: true })
-
-  }
-
-  document.querySelectorAll('.price-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const newPrice = button.getAttribute('data-price'); 
-      updatePrice(newPrice);
-    });
-  });
-
-  updatePrice(document.getElementById('price-container').getAttribute('data-pd-original-price'));
-</script>
         <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
 <script>
     let gallery = document.getElementById('gallery')
@@ -121,41 +52,7 @@ ParityDeals.updatePrice(newPrice) {
     
   </script>
 
-<script>
-const fetchCheckoutUrl = async () => {
-    const data = {
-      pd_identifier: 'b1d5511f-42e3-46a9-aa8f-eb75923f8001',  //(required) Replace with actual pd identifier
-      ip_address: '192.168.1.37',     //(optional) Replace with actual ip_address.
-      variants:520841,    //(conditional) Replace with the actual product variants.
-                      //This Parameter is required if checkout_data is not provided.
-      store_id: 123056, //(required) Replace with actual store ID
-      checkout_data: {},   //(conditional) Replace with the actual Lemonsqueezy checkout data
-                          //This Parameter is required if variants is not provided.
-      success_url: 'https://ujjwalm1999.github.io/demo/' //(optional) Set the URL for post-checkout redirection.
-    };
-  
-    try {
-      const response = await fetch('https://www.paritydeals.com/api/v1/lemon-squeezy-checkout/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
-      const result = await response.json();
-      console.log('Successfully created Checkout session:', result);
-    } catch (error) {
-      console.error('Error while Checkout session:', error);
-    }
-  };
-  
-  // Call the function
-  fetchCheckoutUrl();
-  
-  
-  
-</script>
+
     
    <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="66a7179fc63e89ec80e1ec57"></script>
     
