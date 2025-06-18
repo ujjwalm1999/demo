@@ -2,56 +2,7 @@
 <html>
 <head>
   <script type="text/javascript">
-(function (w, d, s, o, f, js, fjs) {
-  w[o] =
-    w[o] ||
-    function () {
-      (w[o].q = w[o].q || []).push(Array.prototype.slice.call(arguments));
-    };
-  (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-  js.id = "parity-deals-sdk";
-  js.async = 1;
-  js.src = f;
-  js.type = "module";
-  fjs.parentNode.insertBefore(js, fjs);
-})(
-  window,
-  document,
-  "script",
-  "ParityDealsSDK",
-  "https://cdn.paritydeals.com/js-promotions-ui/js-promotions-ui-1.0.0.umd.js"
-);
-function resolvePdSDKFunction(functionName, ...args) {
-  return new Promise((resolve, reject) => {
-    function checkSDK() {
-      if (
-        window.ParityDealsSDK &&
-        typeof window.ParityDealsSDK[functionName] === "function"
-      ) {
-        window.ParityDealsSDK[functionName](...args)
-          .then(resolve)
-          .catch(reject);
-      } else {
-        setTimeout(checkSDK, 100);
-      }
-    }
-    checkSDK();
-  });
-}
-window.ParityDeals = {
-  init: function (options) {
-    ParityDealsSDK("init", options);
-  },
-  getUpdatedPrice: function (price, options) {
-    return resolvePdSDKFunction("getUpdatedPrice", price, options);
-  },
-  updatePriceElement: function (element, options) {
-    return resolvePdSDKFunction("updatePriceElement", element, options);
-  },
-  updatePrice: function (priceConfigs) {
-    return resolvePdSDKFunction("updatePrice", priceConfigs);
-  },
-};
+function resolvePdSDKFunction(e,...t){return new Promise((n,i)=>{!function r(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(r,100)}()})}!function(e,t,n,i,r,a,c){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},a=t.createElement(n),c=t.getElementsByTagName(n)[0],a.id="parity-deals-sdk",a.async=1,a.src=r,c.parentNode.insertBefore(a,c)}(window,document,"script","ParityDealsSDK","https://cdn.paritydeals.com/js-promotions-ui/js-promotions-ui-1.0.0.umd.js"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
 ParityDeals.init({
   productId: 'promo_ac7f4558c9654cb491755b022b17a153',
   showBanner: true,
