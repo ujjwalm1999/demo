@@ -13,12 +13,13 @@
 
 <script type="text/javascript">
 function resolvePdSDKFunction(e,...t){return new Promise(((n,i)=>{!function o(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(o,100)}()}))}!function(e,t,n,i,o,r,a){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},r=t.createElement(n),a=t.getElementsByTagName(n)[0],r.id="parity-deals-sdk",r.async=1,r.src="https://cdn.paritydeals.com/js-promotions-ui/js-promotions-ui-1.0.0.umd.js",r.type="module",a.parentNode.insertBefore(r,a)}(window,document,"script","ParityDealsSDK"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
-</script>
-<script>
-  ParityDeals.init({
+ParityDeals.init({
   productId: 'promo_65b31c09a3ee4e51898e0e0c363fdb16',
   showBanner: true,
 });
+</script>
+<script>
+  
 </script>
 
 </head>
@@ -37,7 +38,35 @@ function resolvePdSDKFunction(e,...t){return new Promise(((n,i)=>{!function o(){
     <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https:https://www.paritydeals.com/api/v1/stripe-buy-now/?payment_id=plink_1QSWybLN3QPLtCqeBAHsdlNL&pd_suite_id=231&success_url=https://ujjwalm1999.github.io/" role="button">Purchase now</a>
         <a class="btn btn-brand-size btn-outline-dark btn-pricing" href="https://www.paritydeals.com/api/v1/lemon-squeezy-buy-now/?store_id=15171&variants=44340,520757&pd_suite_id=234&success_url=https://ujjwalm1999.github.io/" role="button">lemon now</a>
 
+<div class="pricing-plan" data-pd-original-price="99">
+  <h3>Basic Plan</h3>
+  <h3 data-pd-price-formatted>$99</h3>
+</div>
 
+
+<div class="price-container" data-pd-original-price="99">
+  <span class="currency" data-pd-currency-symbol></span>
+  <span class="integer" data-pd-price-integer></span>
+  <span class="decimal" data-pd-price-decimal></span>
+</div>
+
+
+<div class="pricing-card">
+  <h3>Pro Plan</h3>
+
+  <div class="price-container" data-pd-original-price="99" data-pd-rel="pro-plan">
+    <span class="currency" data-pd-currency-symbol></span>
+    <span class="integer" data-pd-price-integer></span>
+    <span class="decimal" data-pd-price-decimal></span>
+  </div>
+
+  <div class="original-price" data-pd-original-price-display="120" data-pd-rel="pro-plan">
+    <s>
+      <span data-pd-currency-symbol></span>
+      <span data-pd-price-integer></span>
+    </s>
+  </div>
+</div>
 
 
 </body>
