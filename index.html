@@ -14,7 +14,7 @@
 <script type="text/javascript">
 function resolvePdSDKFunction(e,...t){return new Promise(((n,i)=>{!function o(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(o,100)}()}))}!function(e,t,n,i,o,r,a){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},r=t.createElement(n),a=t.getElementsByTagName(n)[0],r.id="parity-deals-sdk",r.async=1,r.src="https://cdn.paritydeals.com/js-promotions-ui/js-promotions-ui-1.0.0.umd.js",r.type="module",a.parentNode.insertBefore(r,a)}(window,document,"script","ParityDealsSDK"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
 ParityDeals.init({
-  productId: 'promo_65b31c09a3ee4e51898e0e0c363fdb16',
+  productId: '5330c4f1-0975-4b62-bca2-05457a94afa5',
   showBanner: true,
 });
 </script>
