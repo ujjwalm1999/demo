@@ -8,6 +8,18 @@ PDPromotionUI.init({
   showBanner: true,
 });
 </script>
+<script>
+function resolvePdSDKFunction(n,...o){return new Promise((e,t)=>{!function i(){window.KQPromotionUISDK&&"function"==typeof window.KQPromotionUISDK[n]?window.KQPromotionUISDK[n](...o).then(e).catch(t):setTimeout(i,100)}()})}!function(n,o,e,t,i,r,c){n[t]=n[t]||function(){(n[t].q=n[t].q||[]).push(Array.prototype.slice.call(arguments))},r=o.createElement(e),c=o.getElementsByTagName(e)[0],r.id="kelviq-sdk",r.async=1,r.src="https://cdn.kelviq.com/js-promotions-ui/0.1/js-promotions-ui.umd.js",c.parentNode.insertBefore(r,c)}(window,document,"script","KQPromotionUISDK"),window.KQPromotionUI={init:function(n){KQPromotionUISDK("init",n)},getUpdatedPrice:function(n,o){return resolvePdSDKFunction("getUpdatedPrice",n,o)},updatePriceElement:function(n,o){return resolvePdSDKFunction("updatePriceElement",n,o)},updatePrice:function(n){return resolvePdSDKFunction("updatePrice",n)}};
+
+// Initialize Kelviq SDK
+KQPromotionUI.init({
+    promotionId: "618a8b82-af4d-4f11-8abd-0ebcb7560c05",
+    accessToken: "client-d18ac770-29e4-459a-a90e-7924b26f5061:777733cd-78e7-43e8-ad12-5da5b8e608f2",
+    // Pass other options as needed
+  showBanner: true,
+  environment: 'sandbox
+});
+</script>
 
 <!-- <script type="text/javascript">
 function resolvePdSDKFunction(e,...t){return new Promise((n,i)=>{!function r(){window.ParityDealsSDK&&"function"==typeof window.ParityDealsSDK[e]?window.ParityDealsSDK[e](...t).then(n).catch(i):setTimeout(r,100)}()})}!function(e,t,n,i,r,a,c){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(Array.prototype.slice.call(arguments))},a=t.createElement(n),c=t.getElementsByTagName(n)[0],a.id="parity-deals-sdk",a.async=1,a.src=r,c.parentNode.insertBefore(a,c)}(window,document,"script","ParityDealsSDK","https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js"),window.ParityDeals={init:function(e){ParityDealsSDK("init",e)},getUpdatedPrice:function(e,t){return resolvePdSDKFunction("getUpdatedPrice",e,t)},updatePriceElement:function(e,t){return resolvePdSDKFunction("updatePriceElement",e,t)},updatePrice:function(e){return resolvePdSDKFunction("updatePrice",e)}};
@@ -44,36 +56,32 @@ ParityDeals.init({
   </div>
    
 
-<div class="pricing-plan" data-pd-original-price="99">
-  <h3>Basic Plan</h3>
-  <h3 data-pd-price-formatted>$99</h3>
+<!-- Integer-only price -->
+<div data-kq-price="49">
+  <sup data-kq-currency-symbol></sup>
+  <span data-kq-price-integer></span>
 </div>
 
-
-<div class="price-container" data-pd-original-price="99">
-  <span class="currency" data-pd-currency-symbol></span>
-  <span class="integer" data-pd-price-integer></span>
-  <span class="decimal" data-pd-price-decimal></span>
+<!-- Price with decimal -->
+<div data-kq-price="49" data-kq-show-decimal="true">
+  <sup data-kq-currency-symbol></sup>
+  <span data-kq-price-integer></span>
+  <span data-kq-price-decimal-separator></span>
+  <span data-kq-price-decimal></span>
 </div>
 
-
-<div class="pricing-card">
-  <h3>Pro Plan</h3>
-
-  <div class="price-container" data-pd-original-price="200" data-pd-rel="pro-plan">
-    <span class="currency" data-pd-currency-symbol></span>
-    <span class="integer" data-pd-price-integer></span>
-    <span class="decimal" data-pd-price-decimal></span>
-  </div>
-
-  <div class="original-price" data-pd-original-price-display="120" data-pd-rel="pro-plan">
-    <s>
-      <span data-pd-currency-symbol></span>
-      <span data-pd-price-integer></span>
-    </s>
-  </div>
+<!-- Discounted price + original price (linked by data-kq-rel) -->
+<div data-kq-price="79" data-kq-rel="pro-plan" data-kq-show-decimal="true">
+  <span data-kq-price-formatted></span>
+</div>
+<div data-kq-original-price-display="99" data-kq-rel="pro-plan" class="original-price">
+  <span data-kq-price-formatted></span>
 </div>
 
+<!-- Currency code instead of symbol -->
+<div data-kq-price="99" data-kq-currency-display="code">
+  <span data-kq-price-formatted></span>   <!-- renders e.g. "USD 99" -->
+</div>
 
 </body>
 
